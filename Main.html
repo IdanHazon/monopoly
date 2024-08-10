@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8 encoding" />
+    <title></title>
+    <link rel="stylesheet" href="StyleSheet1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body onload="open_Starter_Card()">
+    <!--<h1 class="headline">מונופול</h1>-->
+    <input type="image" src="IMAGES/player2.png" class="image" onclick="toggleTurn()" id="button" />
+    <image src="IMAGES/board_image.png" class="main_image" style="display:none" id="main_image"></image>
+    <p id="steps" class="steps">1</p>
+
+    <div id="myModal" class="modal">
+
+        <div class="modal-content" id="modal_content">
+
+            <img id="soldImage" class="soldImage" src="IMAGES/sold.png" />
+            <img src="" class="place" id="img" />
+
+            <p class="headline" id="headline"></p>
+
+            <p class="price" id="price"></p>
+
+
+            <p class="text" id="description"></p>
+
+            <p class="price" id="charge" style="direction:rtl; font-size: 20px;"></p>
+
+            <div id="center_buttons_div" style="display: flex; flex-wrap: nowrap; justify-content: space-evenly; margin-top:35px;">
+
+                <button id="dont_buy" class="buy" style="background-color:rgb(242 17 17 / 0.83)" onclick="dont_buy()">וותר</button>
+
+                <button class="buy" id="buy_property">קנה</button>
+            </div>
+
+        </div>
+    </div>
+    <div id="start_model" class="modal">
+
+        <div class="modal-content modal-first" id="modal_first">
+            <div class="white_div" id="white_div">
+
+                <div class="center">
+                    <img class="logo" src="IMAGES/logo.png" id="logo" />
+                </div>
+                <p class="choose_game_type" id="game_type_headline">בחר סוג משחק</p>
+                <div class="center" id="center_buttons">
+
+                    <input type="image" src="IMAGES/1v1.png" class="choose_game_button" onmouseover="game_mode_text('שחקן נגד שחקן')" onmouseout="game_mode_text('')" onclick="game_mode_choose('1v1')" />
+                    <input type="image" src="IMAGES/bot.png" class="choose_game_button" onmouseover="game_mode_text('נגד בוט')" onmouseout="game_mode_text('')" />
+                </div>
+                <p class="mini_text_mode" id="text_mode"></p>
+                <p class="figure_name_headline" id="name_headline"></p>
+                <p class="figure_description" id="figure_description"></p>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="currency" id="currency" onmouseenter="flex_info_box()" onmouseleave="flex_close()">
+        <div class="currency-mini" id="inner-div-currency">
+            <img id="current_player" class="character" src="https://media.istockphoto.com/photos/mountain-landscape-picture-id517188688?k=20&m=517188688&s=612x612&w=0&h=i38qBm2P-6V4vZVEaMy_TaTEaoCMkYhvLCysE7yJQ5Q=" />
+            <p class="character-headline" id="character-headline">שרית חיים</p>
+            <p class="character-money" id="character-money">יתרה בחשבון: </p>
+            <p class="character-propeties" id="character-propeties">נכסים: </p>
+            <div class="propeties-flex" id="propeties-flex"></div>
+        </div>
+    </div>
+
+    <div id="dilema_black_screen" class="modal">
+        <div class="modal-content-dilema" id="dilema_content">
+
+            <img src="IMAGES/cut_in_line.png" class="place" id="img_dilema" />
+
+            <p class="headline" id="headline_dilema" style="direction:rtl">דילמה</p>
+
+
+            <p class="text" id="description_dilema" style="direction:rtl">ערס עוקף אותך בתור, מה תעשה?</p>
+
+
+            <div id="center_buttons_div_dilema" style="display: flex; flex-wrap: nowrap; justify-content: space-evenly; margin-top:35px;">
+
+                <button id="optionA" class="options">אופציה א</button>
+
+                <button id="optionB" class="options">אופציה ב</button>
+
+                <button id="continue" class="options" onclick="close_dilema()">המשך</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="black_screen" class="modal">
+        <div id="alert_div" class="modal-content">
+            <img src="" class="place" id="top-image" />
+
+            <p class="headline" id="headline_text" style="direction:rtl"></p>
+
+
+            <p class="text" id="description_bottom_text" style="direction:rtl">ערס עוקף אותך בתור, מה תעשה?</p>
+
+
+            <div id="center_buttons_alert_div" style="display: flex; flex-wrap: nowrap; justify-content: space-evenly; margin-top:35px;">
+
+
+                <button id="close" class="options" onclick="">המשך</button>
+            </div>
+
+        </div>
+        <script src="Script1.js" charset="utf-8 decoding" type="text/javascript"></script>
+
+    </div>
+
+</body>
+</html>
