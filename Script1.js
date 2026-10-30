@@ -112,7 +112,7 @@ let specials6 = new specials("תיבת מזל", "מצאת 50 שח על הרצפ�
     take_money(-50);
 });
 let specials7 = new specials("הפתעה", "נסעת מעל המהירות המותרת! שלם 20 שח", "", () => {take_money(20);});
-let specials8 = new specials("הפתעה", "ביקורת מס הכנסה- שלם על כל נכס 10 שקלים", "", () => { take_money(20); });
+let specials8 = new specials("הפתעה", "ביקורת מס הכנסה- שלם על כל נכס 10 שקלים", "", () => { take_money(10 * current_player.properties); });
 const lucky_chest = [specials1, specials4, specials6];
 const surprise = [specials2, specials3, specials5, specials7, specials8];
 function steps() {
@@ -161,7 +161,7 @@ function switch_button(player) {
     player.current_cell = current_cell_2;
     player.starter_cell = current_cell_2;
     other_player.current_cell = current_cell_1;
-    other_player.current_cell = current_cell_1;
+    other_player.starter_cell = current_cell_1;
 
     let modal = document.getElementById("black_screen");
     modal.style.display = "none";
@@ -562,16 +562,6 @@ function buy_property(player, property) {
 function dont_buy() {
     document.getElementById("buy_property").removeEventListener("click", buy_property);
     close_card();
-}
-function sold_charge(property, player) {
-    document.getElementById('headline').innerHTML = property.name;
-    document.getElementById('img').src = 'IMAGES/' + property.img;
-    alert(player.figure_name);
-    document.getElementById('price').innerHTML = 'בעלים: ' + player.figure_name;
-    document.getElementById('description').innerHTML = '';
-    document.getElementById('charge').innerHTML = "דמי שכירות: " + charge + "₪";
-    openCard();
-
 }
 function canBuyThePropety(player, property) {
     if (player.money < property.price) {
